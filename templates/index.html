@@ -1,0 +1,1249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🚀 Inemi Ai Caption Generator PRO | AI-Powered</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Montserrat:wght@800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #6C5CE7;
+            --primary-dark: #5649C0;
+            --secondary: #FD79A8;
+            --accent: #00CEFF;
+            --success: #00B894;
+            --warning: #FDCB6E;
+            --danger: #E17055;
+            --dark: #2D3436;
+            --light: #F5F6FA;
+            --gray: #636E72;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #f5f7fa 0%, #dfe6f0 100%);
+            min-height: 100vh;
+            padding: 2rem 1rem;
+            color: var(--dark);
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+            overflow: hidden;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+            padding: 2.5rem 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        header::after {
+            content: "";
+            position: absolute;
+            bottom: -50px;
+            left: -10%;
+            width: 120%;
+            height: 100px;
+            background: white;
+            transform: rotate(-2deg);
+            z-index: 1;
+        }
+        
+        h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.8rem;
+            margin-bottom: 0.5rem;
+            font-weight: 800;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            position: relative;
+            z-index: 2;
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 700px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.2);
+            backdrop-filter: blur(5px);
+            padding: 0.3rem 0.8rem;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            margin-top: 1rem;
+            font-weight: 600;
+        }
+        
+        .content {
+            padding: 3rem 2rem;
+            position: relative;
+        }
+        
+        .form-container {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(108, 92, 231, 0.1);
+            margin-bottom: 2rem;
+        }
+        
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group {
+            margin-bottom: 1rem;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: var(--dark);
+            font-size: 0.95rem;
+        }
+        
+        .input-icon {
+            position: relative;
+        }
+        
+        .input-icon i {
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--gray);
+        }
+        
+        input, select, textarea {
+            width: 100%;
+            padding: 12px 15px 12px 45px;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: all 0.3s;
+            background: var(--light);
+        }
+        
+        .input-icon input, .input-icon select {
+            padding-left: 45px;
+        }
+        
+        textarea {
+            min-height: 100px;
+            resize: vertical;
+            padding: 15px;
+        }
+        
+        input:focus, select:focus, textarea:focus {
+            border-color: var(--primary);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(108, 92, 231, 0.2);
+            background: white;
+        }
+        
+        .btn {
+            background: linear-gradient(to right, var(--primary), var(--primary-dark));
+            color: white;
+            border: none;
+            padding: 15px 25px;
+            border-radius: 10px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(108, 92, 231, 0.3);
+        }
+        
+        .btn-secondary {
+            background: var(--light);
+            color: var(--dark);
+        }
+        
+        .btn-secondary:hover {
+            background: #e0e0e0;
+        }
+        
+        .btn-lg {
+            padding: 18px 30px;
+            font-size: 1.1rem;
+        }
+        
+        .result-container {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            margin-top: 2rem;
+            display: none;
+        }
+        
+        .result-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .result-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .result-meta {
+            display: flex;
+            gap: 15px;
+            font-size: 0.9rem;
+            color: var(--gray);
+        }
+        
+        .result-item {
+            margin-bottom: 2rem;
+        }
+        
+        .result-label {
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 0.8rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.1rem;
+        }
+        
+        .result-content {
+            background: var(--light);
+            padding: 1.2rem 1.5rem;
+            border-radius: 10px;
+            border-left: 4px solid var(--accent);
+            white-space: pre-line;
+        }
+        
+        .hashtags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 5px;
+        }
+        
+        .hashtag {
+            background: rgba(0, 206, 255, 0.1);
+            color: var(--primary-dark);
+            padding: 5px 12px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+        
+        .action-buttons {
+            display: flex;
+            gap: 15px;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+        
+        .loading {
+            display: none;
+            text-align: center;
+            padding: 2rem;
+            background: rgba(255,255,255,0.8);
+            border-radius: 15px;
+            margin: 1rem 0;
+        }
+        
+        .spinner {
+            border: 5px solid rgba(108, 92, 231, 0.1);
+            border-radius: 50%;
+            border-top: 5px solid var(--primary);
+            width: 50px;
+            height: 50px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 1rem;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 3rem 0;
+        }
+        
+        .feature-card {
+            background: white;
+            border-radius: 15px;
+            padding: 1.5rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .feature-icon {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+        
+        .feature-title {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+        
+        .feature-desc {
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 2rem;
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+        
+        .history-panel {
+            background: var(--light);
+            border-radius: 15px;
+            padding: 1.5rem;
+            margin-top: 2rem;
+            display: none;
+        }
+        
+        .history-item {
+            background: white;
+            padding: 1rem;
+            border-radius: 10px;
+            margin-bottom: 1rem;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        
+        .history-item:hover {
+            background: #f0f0f0;
+        }
+        
+        .history-topic {
+            font-weight: 600;
+            margin-bottom: 0.3rem;
+        }
+        
+        .history-meta {
+            display: flex;
+            gap: 10px;
+            font-size: 0.8rem;
+            color: var(--gray);
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .content {
+                padding: 2rem 1rem;
+            }
+            
+            .form-container {
+                padding: 1.5rem;
+            }
+            
+            .result-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+            
+            .result-meta {
+                flex-wrap: wrap;
+            }
+        }
+        
+        /* Animasi */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .animate-fade {
+            animation: fadeIn 0.5s ease-out forwards;
+        }
+        
+        /* Toggle switch */
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 50px;
+            height: 24px;
+            margin-left: 10px;
+        }
+        
+        .switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+        
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            transition: .4s;
+            border-radius: 24px;
+        }
+        
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 16px;
+            width: 16px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            transition: .4s;
+            border-radius: 50%;
+        }
+        
+        input:checked + .slider {
+            background-color: var(--primary);
+        }
+        
+        input:checked + .slider:before {
+            transform: translateX(26px);
+        }
+
+        /* Responsive Premium Features Section */
+        .premium-features {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .premium-section {
+            background: #f8f7ff;
+            border-radius: 18px;
+            box-shadow: 0 2px 8px rgba(108,92,231,0.04);
+            padding: 1.5rem 1.2rem;
+            margin-bottom: 0.5rem;
+            width: 100%;
+            max-width: 100%;
+            box-sizing: border-box;
+        }
+
+        .trending-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .trend-tag {
+            background: #f0eeff;
+            color: #00b894;
+            border-radius: 20px;
+            padding: 1.1rem 1.2rem;
+            min-width: 220px;
+            max-width: 100%;
+            flex: 1 1 220px;
+            margin-bottom: 0.5rem;
+            font-size: 1rem;
+            word-break: break-word;
+            box-sizing: border-box;
+        }
+
+        @media (max-width: 900px) {
+            .premium-features {
+                gap: 1rem;
+            }
+            .premium-section {
+                padding: 1.1rem 0.7rem;
+            }
+            .trending-container {
+                flex-direction: column;
+                gap: 0.7rem;
+            }
+            .trend-tag {
+                min-width: 0;
+                width: 100%;
+                font-size: 0.98rem;
+            }
+        }
+
+        @media (max-width: 600px) {
+            header {
+                padding: 1.5rem 0.5rem 1.2rem 0.5rem;
+                border-radius: 0 0 24px 24px;
+            }
+            header > div {
+                flex-direction: column !important;
+                align-items: center !important;
+                gap: 0 !important;
+            }
+            header h1 {
+                font-size: 1.35rem !important;
+                text-align: center !important;
+                margin-top: 0.7rem !important;
+                margin-bottom: 0.2rem !important;
+                line-height: 1.2 !important;
+            }
+            header .subtitle {
+                font-size: 1rem !important;
+                text-align: center !important;
+                margin-top: 0.5rem !important;
+                margin-bottom: 0.7rem !important;
+            }
+            header .badge {
+                font-size: 0.85rem !important;
+                margin-top: 0.5rem !important;
+                margin-bottom: 0 !important;
+            }
+            header img[alt="Logo"] {
+                height: 64px !important;
+                width: 64px !important;
+                margin-bottom: 0.3rem !important;
+                margin-top: 0.2rem !important;
+                display: block;
+                margin-left: auto;
+                margin-right: auto;
+            }
+            header > div > div:first-child {
+                flex-direction: column !important;
+                gap: 0 !important;
+                align-items: center !important;
+                margin-bottom: 0.2rem !important;
+            }
+            .premium-section {
+                padding: 0.8rem 0.3rem;
+                font-size: 0.97rem;
+            }
+            .trending-container {
+                gap: 0.5rem;
+            }
+            .trend-tag {
+                padding: 0.8rem 0.7rem;
+                font-size: 0.95rem;
+            }
+        }
+
+        @keyframes logoPop {
+            0% { transform: scale(0.7) rotate(-10deg); opacity: 0; }
+            60% { transform: scale(1.15) rotate(6deg); opacity: 1; }
+            100% { transform: scale(1) rotate(0deg); opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                <div style="display: flex; align-items: center; gap: 18px; margin-bottom: 0.2rem;">
+                    <div style="background: linear-gradient(135deg, #6C5CE7 60%, #00CEFF 100%); padding: 8px; border-radius: 16px; box-shadow: 0 4px 16px rgba(108,92,231,0.15); display: flex; align-items: center; justify-content: center; animation: logoPop 1.2s cubic-bezier(.68,-0.55,.27,1.55);">
+                        <img src="/logo/logo.jpg" alt="Logo" style="height: 56px; width: 56px; object-fit: cover; border-radius: 12px; border: 3px solid #fff; box-shadow: 0 2px 8px rgba(0,0,0,0.10); background: white;" />
+                    </div>
+                    <div>
+                        <h1 style="font-size: 2.3rem; font-family: 'Montserrat', sans-serif; font-weight: 800; margin: 0; letter-spacing: 1px; text-shadow: 0 2px 8px rgba(108,92,231,0.08);">INEMI Ai Generator Caption</h1>
+                        
+                    </div>
+                </div>
+                <p class="subtitle">AI-powered viral captions for TikTok, Instagram Reels, Facebook Pro & YouTube Shorts</p>
+                <span class="badge">BETA v2.1.0</span>
+            </div>
+        </header>
+        
+        <div class="content">
+            <div class="form-container">
+                <h2 style="margin-bottom: 1.5rem; color: var(--primary);">📝 Generate Caption Baru</h2>
+                
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="topic"><i class="fas fa-hashtag"></i> Topik Konten</label>
+                        <div class="input-icon">
+                            <i class="fas fa-lightbulb"></i>
+                            <input type="text" id="topic" placeholder="Contoh: unboxing iPhone, resep masakan, workout di rumah">
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="style"><i class="fas fa-paint-brush"></i> Gaya Caption</label>
+                        <div class="input-icon">
+                            <i class="fas fa-magic"></i>
+                            <select id="style">
+                                <option value="lucu">Lucu 😂</option>
+                                <option value="inspiratif">Inspiratif ✨</option>
+                                <option value="galau">Galau 😔</option>
+                                <option value="promosi">Promosi 💰</option>
+                                <option value="dramatis">Dramatis 🎭</option>
+                                <option value="misterius">Misterius 🔮</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="platform"><i class="fas fa-mobile-alt"></i> Platform</label>
+                        <div class="input-icon">
+                            <i class="fas fa-share-alt"></i>
+                            <select id="platform">
+                                <option value="tiktok">TikTok</option>
+                                <option value="instagram">Instagram Reels</option>
+                                <option value="youtube">YouTube Shorts</option>
+                                <option value="facebook">Facebook Pro</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="content-type"><i class="fas fa-tag"></i> Jenis Konten</label>
+                    <div class="input-icon">
+                        <i class="fas fa-layer-group"></i>
+                        <select id="content-type">
+                            <option value="general">Umum</option>
+                            <option value="entertainment">Hiburan</option>
+                            <option value="educational">Edukasi</option>
+                            <option value="business">Bisnis</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="notes"><i class="fas fa-sticky-note"></i> Catatan Tambahan (Opsional)</label>
+                    <textarea id="notes" placeholder="Tambahkan detail spesifik yang ingin dimasukkan dalam caption..."></textarea>
+                </div>
+                
+                <div style="display: flex; justify-content: center; margin-top: 1.5rem;">
+                    <button id="generate-btn" class="btn btn-lg">
+                        <i class="fas fa-bolt"></i> GENERATE CAPTION
+                    </button>
+                </div>
+            </div>
+            
+            <div class="loading" id="loading">
+                <div class="spinner"></div>
+                <p style="margin-top: 1rem; font-weight: 600;">AI sedang membuat caption viral untukmu...</p>
+                <p style="font-size: 0.9rem; color: var(--gray); margin-top: 0.5rem;">Ini mungkin memakan waktu 10-20 detik</p>
+            </div>
+            
+            <div class="result-container" id="result-container">
+                <div class="result-header">
+                    <div class="result-title">
+                        <i class="fas fa-rocket"></i> HASIL CAPTION VIRAL
+                    </div>
+                    <div class="result-meta">
+                        <span id="result-platform"><i class="fas fa-share-alt"></i> TikTok</span>
+                        <span id="result-style"><i class="fas fa-tag"></i> Lucu</span>
+                        <span id="result-time"><i class="far fa-clock"></i> Baru saja</span>
+                    </div>
+                </div>
+                
+                <!-- Premium Features Section -->
+                <div class="premium-features">
+                    <div class="premium-header">
+                        <h3><i class="fas fa-crown"></i> Premium Analysis</h3>
+                    </div>
+                    
+                    <!-- Trending Hashtags -->
+                    <div class="premium-section">
+                        <h4><i class="fas fa-chart-line"></i> Trending Hashtags</h4>
+                        <div id="trending-hashtags" class="trending-container"></div>
+                        <div id="hashtag-analysis" class="analysis-container"></div>
+                        <div id="hashtag-recommendation" class="recommendation-container"></div>
+                        <div class="refresh-button">
+                            <button onclick="refreshHashtags()" class="btn btn-secondary">
+                                <i class="fas fa-sync-alt"></i> Refresh Trends
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- Best Posting Time -->
+                    <div class="premium-section">
+                        <h4><i class="fas fa-clock"></i> Best Posting Time</h4>
+                        <div id="best-posting-time" class="time-container"></div>
+                    </div>
+                    
+                    <!-- Engagement Analysis -->
+                    <div class="premium-section">
+                        <h4><i class="fas fa-chart-bar"></i> Engagement Analysis</h4>
+                        <div id="engagement-analysis" class="engagement-container"></div>
+                    </div>
+                    
+                    <!-- A/B Testing -->
+                    <div class="premium-section">
+                        <h4><i class="fas fa-vial"></i> A/B Testing</h4>
+                        <div id="ab-test-variations" class="ab-test-container"></div>
+                    </div>
+                </div>
+
+                <div class="result-item animate-fade">
+                    <div class="result-label">
+                        <i class="fas fa-fish"></i> HOOK PEMBUKA
+                    </div>
+                    <div class="result-content" id="hook"></div>
+                </div>
+                
+                <div class="result-item animate-fade" style="animation-delay: 0.1s;">
+                    <div class="result-label">
+                        <i class="fas fa-align-left"></i> CAPTION UTAMA
+                    </div>
+                    <div class="result-content" id="caption"></div>
+                </div>
+                
+                <div class="result-item animate-fade" style="animation-delay: 0.2s;">
+                    <div class="result-label">
+                        <i class="fas fa-bullhorn"></i> CALL TO ACTION
+                    </div>
+                    <div class="result-content" id="cta"></div>
+                </div>
+                
+                <div class="result-item animate-fade" style="animation-delay: 0.3s;">
+                    <div class="result-label">
+                        <i class="fas fa-hashtag"></i> HASHTAGS
+                    </div>
+                    <div class="result-content">
+                        <div class="hashtags" id="hashtags"></div>
+                    </div>
+                </div>
+                
+                <div class="result-item animate-fade" style="animation-delay: 0.4s;">
+                    <div class="result-label">
+                        <i class="fas fa-lightbulb"></i> TIPS ENGAGEMENT
+                    </div>
+                    <div class="result-content" id="tips"></div>
+                </div>
+                
+                <div class="action-buttons">
+                    <button id="copy-all-btn" class="btn">
+                        <i class="far fa-copy"></i> Salin Semua
+                    </button>
+                    <button id="save-btn" class="btn btn-secondary">
+                        <i class="far fa-bookmark"></i> Simpan
+                    </button>
+                    <button id="regenerate-btn" class="btn btn-secondary">
+                        <i class="fas fa-sync-alt"></i> Generate Ulang
+                    </button>
+                </div>
+            </div>
+            
+            <div class="features">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <div class="feature-title">Cepat & Efisien</div>
+                    <div class="feature-desc">Generate caption viral dalam hitungan detik tanpa ribet</div>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <div class="feature-title">AI Canggih</div>
+                    <div class="feature-desc">Ditenagai model AI terbaru untuk hasil terbaik</div>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <div class="feature-title">Optimasi Engagement</div>
+                    <div class="feature-desc">Formula caption yang terbukti meningkatkan interaksi</div>
+                </div>
+            </div>
+            
+            <div class="history-panel" id="history-panel">
+                <h3 style="margin-bottom: 1rem; display: flex; align-items: center;">
+                    <i class="fas fa-history" style="margin-right: 10px;"></i> Riwayat Generasi
+                    <label class="switch" style="margin-left: auto;">
+                        <input type="checkbox" id="history-toggle">
+                        <span class="slider"></span>
+                    </label>
+                </h3>
+                <div id="history-list"></div>
+            </div>
+        </div>
+        
+        <footer>
+            <p>© 2025 Viral Caption Generator PRO | Dibuat dengan <i class="fas fa-heart" style="color: var(--secondary);"></i> untuk kreator konten</p>
+            <p style="margin-top: 0.5rem; font-size: 0.8rem;">v2.1.0 | Powered by Sof552</p>
+        </footer>
+    </div>
+    
+    <script>
+        // Inisialisasi variabel
+        let generationHistory = JSON.parse(localStorage.getItem('captionHistory')) || [];
+        
+        // DOM Elements
+        const generateBtn = document.getElementById('generate-btn');
+        const regenerateBtn = document.getElementById('regenerate-btn');
+        const copyAllBtn = document.getElementById('copy-all-btn');
+        const saveBtn = document.getElementById('save-btn');
+        const historyToggle = document.getElementById('history-toggle');
+        const historyPanel = document.getElementById('history-panel');
+        
+        // Tampilkan riwayat jika ada
+        if (generationHistory.length > 0) {
+            historyPanel.style.display = 'block';
+            updateHistoryList();
+        }
+        
+        // Event Listeners
+        generateBtn.addEventListener('click', generateCaption);
+        regenerateBtn.addEventListener('click', generateCaption);
+        copyAllBtn.addEventListener('click', copyAllCaption);
+        saveBtn.addEventListener('click', saveCaption);
+        historyToggle.addEventListener('change', toggleHistory);
+        
+        // Fungsi utama untuk generate caption
+        async function generateCaption() {
+            const topic = document.getElementById('topic').value.trim();
+            const style = document.getElementById('style').value;
+            const platform = document.getElementById('platform').value;
+            const contentType = document.getElementById('content-type').value;
+            const notes = document.getElementById('notes').value;
+            
+            if (!topic) {
+                showAlert('error', 'Harap masukkan topik konten terlebih dahulu');
+                return;
+            }
+            
+            // Tampilkan loading
+            document.getElementById('loading').style.display = 'block';
+            document.getElementById('result-container').style.display = 'none';
+            
+            try {
+                const payload = {
+                    topik: topic,
+                    gaya: style,
+                    platform: platform,
+                    content_type: contentType
+                };
+                
+                if (notes) payload.catatan = notes;
+                
+                const response = await fetch('/generate_caption', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(payload)
+                });
+                
+                const data = await response.json();
+                
+                if (data.error) {
+                    throw new Error(data.error);
+                }
+                
+                // Tampilkan hasil
+                displayResults(data, style, platform);
+                
+                // Load premium features
+                await loadPremiumFeatures(platform, contentType);
+                
+                // Analyze engagement
+                await analyzeEngagement(data);
+                
+                // Create A/B test variations
+                await createABTest(data);
+                
+                // Simpan ke riwayat
+                addToHistory({
+                    topic,
+                    style,
+                    platform,
+                    contentType,
+                    result: data,
+                    timestamp: new Date().toLocaleString()
+                });
+                
+            } catch (error) {
+                showAlert('error', `Gagal membuat caption: ${error.message}`);
+                console.error('Error:', error);
+            } finally {
+                document.getElementById('loading').style.display = 'none';
+            }
+        }
+        
+        // Menampilkan hasil generasi
+        function displayResults(data, style, platform) {
+            const resultContainer = document.getElementById('result-container');
+            const styleNames = {
+                'lucu': 'Lucu 😂',
+                'inspiratif': 'Inspiratif ✨',
+                'galau': 'Galau 😔',
+                'promosi': 'Promosi 💰',
+                'dramatis': 'Dramatis 🎭',
+                'misterius': 'Misterius 🔮'
+            };
+            
+            const platformNames = {
+                'tiktok': 'TikTok',
+                'instagram': 'Instagram Reels',
+                'youtube': 'YouTube Shorts',
+                'facebook': 'Facebook Pro'
+            };
+            
+            // Update metadata
+            document.getElementById('result-platform').innerHTML = 
+                `<i class="fas fa-share-alt"></i> ${platformNames[platform]}`;
+            document.getElementById('result-style').innerHTML = 
+                `<i class="fas fa-tag"></i> ${styleNames[style]}`;
+            document.getElementById('result-time').innerHTML = 
+                `<i class="far fa-clock"></i> ${new Date().toLocaleTimeString()}`;
+            
+            // Isi konten
+            document.getElementById('hook').textContent = data.hook || '-';
+            document.getElementById('caption').textContent = data.caption || '-';
+            document.getElementById('cta').textContent = data.cta || '-';
+            document.getElementById('tips').textContent = data.tips || 'Tidak ada tips tersedia';
+            
+            // Format hashtags
+            const hashtagsContainer = document.getElementById('hashtags');
+            hashtagsContainer.innerHTML = '';
+            
+            if (data.hashtags) {
+                const hashtags = data.hashtags.split(' ');
+                hashtags.forEach(tag => {
+                    if (tag.trim()) {
+                        const tagElement = document.createElement('span');
+                        tagElement.className = 'hashtag';
+                        tagElement.textContent = tag;
+                        hashtagsContainer.appendChild(tagElement);
+                    }
+                });
+            }
+            
+            // Tampilkan hasil dengan animasi
+            resultContainer.style.display = 'block';
+            
+            // Trigger animasi
+            const animateElements = document.querySelectorAll('.animate-fade');
+            animateElements.forEach(el => {
+                el.style.opacity = '0';
+                setTimeout(() => {
+                    el.style.opacity = '1';
+                }, 100);
+            });
+        }
+        
+        // Copy semua caption
+        function copyAllCaption() {
+            const hook = document.getElementById('hook').textContent;
+            const caption = document.getElementById('caption').textContent;
+            const cta = document.getElementById('cta').textContent;
+            const hashtags = document.getElementById('hashtags').textContent;
+            const tips = document.getElementById('tips').textContent;
+            
+            const fullCaption = `HOOK: ${hook}\n\nCAPTION:\n${caption}\n\nCTA: ${cta}\n\nHASHTAGS:\n${hashtags}\n\nTIPS:\n${tips}`;
+            
+            navigator.clipboard.writeText(fullCaption).then(() => {
+                const btn = document.getElementById('copy-all-btn');
+                btn.innerHTML = '<i class="fas fa-check"></i> Tersalin!';
+                btn.style.background = 'var(--success)';
+                
+                setTimeout(() => {
+                    btn.innerHTML = '<i class="far fa-copy"></i> Salin Semua';
+                    btn.style.background = 'linear-gradient(to right, var(--primary), var(--primary-dark))';
+                }, 2000);
+            });
+        }
+        
+        // Simpan caption
+        function saveCaption() {
+            const btn = document.getElementById('save-btn');
+            btn.innerHTML = '<i class="fas fa-check"></i> Tersimpan!';
+            btn.style.background = 'var(--success)';
+            
+            setTimeout(() => {
+                btn.innerHTML = '<i class="far fa-bookmark"></i> Simpan';
+                btn.style.background = 'var(--light)';
+            }, 2000);
+        }
+        
+        // Riwayat generasi
+        function addToHistory(item) {
+            generationHistory.unshift(item);
+            if (generationHistory.length > 5) {
+                generationHistory = generationHistory.slice(0, 5);
+            }
+            localStorage.setItem('captionHistory', JSON.stringify(generationHistory));
+            updateHistoryList();
+            
+            if (generationHistory.length === 1) {
+                historyPanel.style.display = 'block';
+            }
+        }
+        
+        function updateHistoryList() {
+            const historyList = document.getElementById('history-list');
+            historyList.innerHTML = '';
+            
+            generationHistory.forEach((item, index) => {
+                const historyItem = document.createElement('div');
+                historyItem.className = 'history-item';
+                historyItem.innerHTML = `
+                    <div class="history-topic">${item.topic}</div>
+                    <div class="history-meta">
+                        <span>${item.style}</span>
+                        <span>•</span>
+                        <span>${item.platform}</span>
+                        <span>•</span>
+                        <span>${item.timestamp}</span>
+                    </div>
+                `;
+                
+                historyItem.addEventListener('click', () => {
+                    displayResults(item.result, item.style, item.platform);
+                    document.getElementById('topic').value = item.topic;
+                    document.getElementById('style').value = item.style;
+                    document.getElementById('platform').value = item.platform;
+                    
+                    // Scroll ke hasil
+                    document.getElementById('result-container').scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+                
+                historyList.appendChild(historyItem);
+            });
+        }
+        
+        function toggleHistory() {
+            const historyList = document.getElementById('history-list');
+            if (historyToggle.checked) {
+                historyList.style.display = 'none';
+            } else {
+                historyList.style.display = 'block';
+            }
+        }
+        
+        // Tampilkan alert
+        function showAlert(type, message) {
+            const alert = document.createElement('div');
+            alert.className = `alert alert-${type}`;
+            alert.textContent = message;
+            
+            // Tambahkan alert ke DOM
+            // (Implementasi lengkap membutuhkan CSS tambahan)
+            console.log(`[${type.toUpperCase()}] ${message}`);
+        }
+
+        // Premium Features Functions
+        async function loadPremiumFeatures(platform, contentType) {
+            try {
+                // Load Trending Hashtags
+                const trendsResponse = await fetch(`/analyze_trends/${platform}`);
+                const trendsData = await trendsResponse.json();
+                if (trendsData.status === 'success') {
+                    displayTrendingHashtags(trendsData.data);
+                }
+
+                // Load Best Posting Time
+                const timeResponse = await fetch(`/best_posting_time/${platform}/${contentType}`);
+                const timeData = await timeResponse.json();
+                if (timeData.status === 'success') {
+                    displayBestPostingTime(timeData.best_times);
+                }
+            } catch (error) {
+                console.error('Error loading premium features:', error);
+            }
+        }
+
+        function displayTrendingHashtags(data) {
+            const container = document.getElementById('trending-hashtags');
+            const analysisContainer = document.getElementById('hashtag-analysis');
+            const recommendationContainer = document.getElementById('hashtag-recommendation');
+            
+            // Clear containers
+            container.innerHTML = '';
+            analysisContainer.innerHTML = '';
+            recommendationContainer.innerHTML = '';
+            
+            // Display hashtags
+            data.hashtags.forEach(tag => {
+                const tagElement = document.createElement('div');
+                tagElement.className = `trend-tag ${tag.trend === 'up' ? 'trend-up' : tag.trend === 'down' ? 'trend-down' : ''}`;
+                tagElement.innerHTML = `
+                    ${tag.tag}
+                    <span class="trend-icon">
+                        ${tag.trend === 'up' ? '↑' : tag.trend === 'down' ? '↓' : '→'}
+                    </span>
+                    <div class="tag-info">
+                        <h5>${tag.tag}</h5>
+                        <p><strong>Penggunaan:</strong> ${tag.count.toLocaleString()}</p>
+                        <p><strong>Konteks:</strong> ${tag.context || 'Tidak tersedia'}</p>
+                        <p><strong>Audience:</strong> ${tag.audience || 'Tidak tersedia'}</p>
+                        <p><strong>Engagement:</strong> ${tag.engagement_rate || 'Tidak tersedia'}</p>
+                    </div>
+                `;
+                container.appendChild(tagElement);
+            });
+            
+            // Display analysis
+            if (data.analysis) {
+                analysisContainer.innerHTML = `
+                    <h5><i class="fas fa-chart-line"></i> Analisis Trend</h5>
+                    <p>${data.analysis}</p>
+                `;
+            }
+            
+            // Display recommendation
+            if (data.recommendation) {
+                recommendationContainer.innerHTML = `
+                    <h5><i class="fas fa-lightbulb"></i> Rekomendasi</h5>
+                    <p>${data.recommendation}</p>
+                `;
+            }
+        }
+
+        async function refreshHashtags() {
+            const platform = document.getElementById('platform').value;
+            const contentType = document.getElementById('content-type').value;
+            
+            // Show loading state
+            const container = document.getElementById('trending-hashtags');
+            container.innerHTML = '<div class="loading-spinner"></div>';
+            
+            try {
+                await loadPremiumFeatures(platform, contentType);
+            } catch (error) {
+                console.error('Error refreshing hashtags:', error);
+                showAlert('error', 'Gagal memperbarui trending hashtags');
+            }
+        }
+
+        function displayBestPostingTime(times) {
+            const container = document.getElementById('best-posting-time');
+            container.innerHTML = '';
+            
+            times.forEach(time => {
+                const timeElement = document.createElement('div');
+                timeElement.className = 'time-slot';
+                timeElement.textContent = time;
+                container.appendChild(timeElement);
+            });
+        }
+
+        async function analyzeEngagement(captionData) {
+            try {
+                const response = await fetch('/analyze_engagement', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(captionData)
+                });
+                
+                const data = await response.json();
+                if (data.status === 'success') {
+                    displayEngagementAnalysis(data.engagement_data);
+                }
+            } catch (error) {
+                console.error('Error analyzing engagement:', error);
+            }
+        }
+
+        function displayEngagementAnalysis(data) {
+            const container = document.getElementById('engagement-analysis');
+            container.innerHTML = '';
+            
+            Object.entries(data.metrics).forEach(([metric, value]) => {
+                const metricElement = document.createElement('div');
+                metricElement.className = 'engagement-metric';
+                metricElement.innerHTML = `
+                    <div class="metric-value">${value}</div>
+                    <div class="metric-label">${metric.charAt(0).toUpperCase() + metric.slice(1)}</div>
+                `;
+                container.appendChild(metricElement);
+            });
+        }
+
+        async function createABTest(captionData) {
+            try {
+                const response = await fetch('/ab_test', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(captionData)
+                });
+                
+                const data = await response.json();
+                if (data.status === 'success') {
+                    displayABTestVariations(data.variations);
+                }
+            } catch (error) {
+                console.error('Error creating A/B test:', error);
+            }
+        }
+
+        function displayABTestVariations(variations) {
+            const container = document.getElementById('ab-test-variations');
+            container.innerHTML = '';
+            
+            variations.forEach((variation, index) => {
+                const variationElement = document.createElement('div');
+                variationElement.className = 'variation-card';
+                variationElement.innerHTML = `
+                    <div class="variation-title">Variation ${index + 1}</div>
+                    <div class="variation-content">
+                        <strong>Hook:</strong> ${variation.hook}<br>
+                        <strong>Caption:</strong> ${variation.caption}<br>
+                        <strong>CTA:</strong> ${variation.cta}
+                    </div>
+                `;
+                container.appendChild(variationElement);
+            });
+        }
+    </script>
+</body>
+</html>
